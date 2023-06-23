@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import Styles from './Styles';
 
-export default function EventCard({data}) {
+const EventCard = React.memo(function EventCard({data}) {
     const EventName = data.data.name
     const EventDate = data.data.date
     const EventTimers = data.data.timer.length
@@ -20,4 +20,6 @@ export default function EventCard({data}) {
             </Text>
         </View>
     )
-};
+});
+
+export default EventCard;

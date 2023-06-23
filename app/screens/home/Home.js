@@ -10,7 +10,7 @@ import HomeStyles from '../../styles/home/HomeStyles';
 
 export default function Home({ navigation }) {
     const [data, setdata] = useState(MockData);
-
+    const [selectRecordingId, setSelectRecordingId] = useState(null);
 
     return (
         // <View> Home page! </View>
@@ -51,19 +51,17 @@ export default function Home({ navigation }) {
                 </Text>
             </View>
             <View style={HomeStyles.eventsView}>
-                <ScrollView horizontal={true} style={HomeStyles.eventsScroll} scrollEnabled={false}>
-                    <FlatList
-                        scrollEnabled={false}
-                        keyExtractor={(item) => (item.id)}
-                        style={HomeStyles.eventCardContainer}
-                        data={data.User.events.slice(0, 3)}
-                        renderItem={({ item: Event }) => (
-                            <EventCard data={Event} />
-                        )}
-                    />
-                </ScrollView>
+                <FlatList
+                    scrollEnabled={false}
+                    keyExtractor={(item) => (item.id)}
+                    style={HomeStyles.eventCardContainer}
+                    data={data.User.events.slice(0, 3)}
+                    renderItem={({ item: Event }) => (
+                        <EventCard data={Event} />
+                    )}
+                />
             </View>
-            <TouchableOpacity style={HomeStyles.buttonView}>
+            <TouchableOpacity style={HomeStyles.buttonView} onPress={() => navigation.navigate("EventsPage")}>
                 <Text style={HomeStyles.buttonText}>
                     VIEW ALL {">"} 
                 </Text>
@@ -77,32 +75,25 @@ export default function Home({ navigation }) {
                 </Text>
             </View>
             <View style={HomeStyles.eventsView}>
-                <ScrollView horizontal={true} style={HomeStyles.eventsScroll}scrollEnabled={false}>
                     <FlatList
                         scrollEnabled={false}
                         keyExtractor={(item) => (item.id)}
                         style={HomeStyles.eventCardContainer}
                         data={data.User.recordings.slice(0, 3)}
                         renderItem={({ item: Recording }) => (
-                            <RecordingCard data={Recording} />
+                            <RecordingCard data={Recording} selectRecordingId={selectRecordingId} setSelectRecordingId={setSelectRecordingId} />
                         )}
                     />
-                </ScrollView>
             </View>
-            <TouchableOpacity >
-                <Text style={{
-                    fontFamily: "Outfit-Regular",
-                    color: "black",
-                    fontSize: 20,
-                }}>VIEW ALL {">"} </Text>
+            <TouchableOpacity style={HomeStyles.buttonView} onPress={() => navigation.navigate("RecordingsPage")}>
+                <Text style={HomeStyles.buttonText}>
+                    VIEW ALL {">"} 
+                </Text>
             </TouchableOpacity>
 
         </ScrollView>
         </SafeAreaView>
     )
-
-
-
 }
 
 

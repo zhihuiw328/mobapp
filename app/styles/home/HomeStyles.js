@@ -15,10 +15,14 @@ const HomeStyles = StyleSheet.create({
         horizontal: true
     },
     safeView: {
-        marginTop: 40,
+        // marginTop: 40,
+        flex: 1,
+        height: '100%',
+        width: '100%',
     },
     scrollView: {
-        marginTop: 30,
+        // marginTop: 30,
+        // overflow: 'visible',
     },
     titleView: {
         marginLeft: 30,
@@ -56,8 +60,12 @@ const HomeStyles = StyleSheet.create({
         flex: 1,
     },
     eventCardContainer: {
-        flex: 1,
+        // flex: 1,
     },
+    // recordingButtonView: {
+    //     marginLeft: 30, 
+    //     marginRight: 30, 
+    // }
 });
 
 export default HomeStyles;

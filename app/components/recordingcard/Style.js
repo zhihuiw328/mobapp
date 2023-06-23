@@ -17,6 +17,7 @@ const Styles = StyleSheet.create({
         lineHeight: 60,
         fontSize: 35,
         color: "#fff",
+        padding: 10,
     },
     cardMaximized: {
         margin: 5,
@@ -62,7 +63,54 @@ const Styles = StyleSheet.create({
         marginTop: 5, 
         width: 15, 
         height: 15
-    }
+    },
+    expandContainer: {
+        margin: 5,
+        marginLeft: 25,
+        width: 320,
+        height: 130,
+        borderRadius: 20,
+        shadowOpacity: 10,
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        backgroundColor: "white",
+        lineHeight: 60,
+        fontSize: 35,
+        color: "#fff",
+        padding: 10,
+    },
+    sliderContainer: {
+        flex: 1,
+        marginLeft: 10,
+        marginRight: 10,
+        alignItems: 'stretch',
+        justifyContent: 'center',
+        marginTop: 5,
+    },
+    rowContainer: {
+        flexDirection: "row",
+    },
+    toLeft: {
+        flexDirection: "row", 
+        marginTop: 5, 
+        marginLeft: 15, 
+        justifyContent: "center", 
+        alignItems: "center",
+    },
+    toRight: {
+        flexDirection: "row", 
+        marginTop: 5, 
+        marginLeft: 15, 
+        justifyContent: "center", 
+        alignItems: "center", 
+        marginLeft: '40%' 
+    },
+    icon: {
+        width:30, 
+        height:30,
+    },
 });
 
 

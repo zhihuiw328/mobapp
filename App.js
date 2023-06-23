@@ -6,8 +6,12 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
 import HomeStack from './app/routes/HomeStack';
+import Drawer from './app/routes/Drawer';
 
-SplashScreen.preventAutoHideAsync();
+
+// SplashScreen.preventAutoHideAsync();
+
+
 
 export default function App() {
   
@@ -29,19 +33,22 @@ export default function App() {
   }
   
   return (
-    <HomeStack />
-    // <View style={styles.container} onLayout={onLayoutRootView}>
-    //   <StatusBar style="auto" />
-
+    // <View>
+    //   <Text>
+    //       hello world!
+    //   </Text>
     // </View>
+    // <HomeStack />
+    <View style={styles.container}>
+      <Drawer />
+      {/* <StatusBar style="auto" /> */}
+      {/* <HomeStack /> */}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
