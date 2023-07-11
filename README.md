@@ -11,5 +11,3 @@ $ npm install expo-cli
 ```bash
 # development
 $ npx expo start
-
-```
