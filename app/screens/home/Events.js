@@ -3,7 +3,7 @@ import { View, Text, FlatList } from 'react-native';
 
 
 import MockData from '../../data/MockData';
-import EventCard from '../../components/eventcard/EventCard';
+import EventCard from '../../components/eventCard/EventCard';
 import EventsStyles from '../../styles/home/EventsStyles';
 
 export default function Events(props) {

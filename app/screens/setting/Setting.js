@@ -1,8 +1,8 @@
 import { View, ScrollView, Button, StyleSheet, SafeAreaView } from 'react-native'
 
 
-import SettingRow from '../../components/settingrow/SettingRow';
-import SettingButton from '../../components/settingbutton/SettingButton';
+import SettingRow from '../../components/settingRow/SettingRow';
+import SettingButton from '../../components/settingButton/SettingButton';
 import SettingStyles from '../../styles/setting/SettingStyles';
 
 export default function Setting({navigation}) {

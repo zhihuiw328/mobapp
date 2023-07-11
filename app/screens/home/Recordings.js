@@ -3,7 +3,7 @@ import { View, Text, FlatList } from 'react-native';
 
 
 import MockData from '../../data/MockData';
-import RecordingCard from '../../components/recordingcard/RecordingCard';
+import RecordingCard from '../../components/recordingCard/RecordingCard';
 import RecordingsStyles from '../../styles/home/RecordingsStyles';
 
 

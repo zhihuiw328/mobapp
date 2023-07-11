@@ -3,9 +3,9 @@ import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, FlatList } from
 
 
 import MockData from '../../data/MockData';
-import TimerCard from '../../components/timercard/TimerCard';
-import EventCard from '../../components/eventcard/EventCard';
-import RecordingCard from '../../components/recordingcard/RecordingCard';
+import TimerCard from '../../components/timerCard/TimerCard';
+import EventCard from '../../components/eventCard/EventCard';
+import RecordingCard from '../../components/recordingCard/RecordingCard';
 import HomeStyles from '../../styles/home/HomeStyles';
 
 export default function Home({ navigation }) {

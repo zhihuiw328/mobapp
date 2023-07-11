@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { View, Text } from 'react-native';
 
 
-import Styles from '../timerinput/Styles';
+import Styles from '../timerInput/Styles';
 
 
 

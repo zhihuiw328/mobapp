@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, Modal } from 'react-native';
 
 
-import ContactCard from '../../components/contactcard/ContactCard';
+import ContactCard from '../../components/contactCard/ContactCard';
 import SafetyNetworkStyles from '../../styles/setting/SafetyNetworkStyles';
 
 

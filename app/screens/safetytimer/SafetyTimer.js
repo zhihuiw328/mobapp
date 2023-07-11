@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import TimerInput from '../../components/timerinput/TimerInput';
+import TimerInput from '../../components/timerInput/TimerInput';
 import InputStyles from '../../styles/safetytimer/InputStyles';
 
 
