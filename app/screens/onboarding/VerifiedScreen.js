@@ -7,7 +7,7 @@ export default function VerifiedScreen({ navigation }) {
     
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.navigate('Main');
+            navigation.navigate('CreateSafetyCode');
         }, 3000);
         
         return () => clearTimeout(timer);

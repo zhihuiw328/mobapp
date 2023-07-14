@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
-export const CELL_SIZE = 45;
-export const CELL_BORDER_RADIUS = 8;
+export const CELL_SIZE = 70;
+export const CELL_BORDER_RADIUS = 6;
 export const DEFAULT_CELL_BG_COLOR = '#fff';
 export const NOT_EMPTY_CELL_BG_COLOR = '#3557b7';
 export const ACTIVE_CELL_BG_COLOR = '#f7fafe';
@@ -27,24 +27,22 @@ const VerificationStyles = StyleSheet.create({
       color: "#fff",
       fontSize: 18,
     },
-    root: { flex: 1, padding: 20 },
     codeFiledRoot: {
       height: CELL_SIZE,
       marginTop: 40,
-      paddingHorizontal: 20,
       justifyContent: 'center',
     },
     cell: {
-        marginHorizontal: 8,
-        width: CELL_SIZE,
+        marginHorizontal: 4,
+        justifyContent: 'center', // center text vertically
+        alignItems: 'center', 
+        width: 50,
         height: CELL_SIZE,
         borderRadius: CELL_BORDER_RADIUS,
         backgroundColor: "#68A3D6",
     },
     cellText:{
-        // lineHeight: CELL_SIZE - 5,
         fontSize: 35,
-        textAlign: 'center',
         fontFamily: "Outfit-Bold",
         color: "#fff",
     },

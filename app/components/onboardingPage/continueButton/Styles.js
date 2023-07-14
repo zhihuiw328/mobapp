@@ -10,7 +10,6 @@ const Styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
     },
     buttonText: { 
         color: "#3684C9", 

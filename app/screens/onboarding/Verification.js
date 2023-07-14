@@ -48,24 +48,27 @@ export default function Verification({ navigation, serverCode}) {
 
     return (
         <Layout>
+            
+            <View >
+                {/* Verification Title */}
+                <View>
+                <Text style={VerificationStyles.title}>
+                    Verification
+                </Text>
+                </View>
 
-            {/* Verification Title */}
-            
-            <Text style={VerificationStyles.title}>Verification</Text>
-            
-
-            {/* Paragraph Text under title */}
-            
-            <Text style={VerificationStyles.text}>
-                We’ve sent you a confirmation code{'\n'}to confirm your identity, please enter{'\n'}it to continue.
-            </Text>
-            
-
+                {/* Paragraph Text under title */}
+                <View>
+                <Text style={VerificationStyles.text}>
+                    We’ve sent you a confirmation code{'\n'}to confirm your identity, please enter{'\n'}it to continue.
+                </Text>
+                </View>
+            </View>
             {/* Verification boxes made through library: react-native-confirmation-code-field */}
             <View>
                 <CodeField
                 ref={ref}
-                {...props}
+                // {...props}
                 value={code}
                 onChangeText={setCode}
                 cellCount={CELL_COUNT}

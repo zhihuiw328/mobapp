@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     return (
         <SafeAreaView style={Styles.container}>
             <View style={Styles.body}>
-            {children}
+                {children}
             </View>
         </SafeAreaView>
     )

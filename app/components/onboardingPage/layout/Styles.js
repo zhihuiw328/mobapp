@@ -7,11 +7,12 @@ const Styles = StyleSheet.create({
         height: '100%',
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
+        // justifyContent: "center",
     },
     body: {
-        // marginTop:'40%',
         width: '80%',
+        height: '100%',
+        justifyContent: "center",
     },
 });
 

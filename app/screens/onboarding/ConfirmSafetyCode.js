@@ -4,13 +4,14 @@ import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell, } from 'react
 
 
 import Layout from '../../components/onboardingPage/layout/Layout';
+import BackButton from '../../components/onboardingPage/backButton/BackButton';
 import ContinueButton from '../../components/onboardingPage/continueButton/ContinueButton';
 import CreateSafetyCodeStyles from '../../styles/onboarding/CreateSafetyCodeStyles';
 import GlobalOnboardingStyles from '../../styles/onboarding/GlobalOnboardingStyles';
 
 const CELL_COUNT = 4;
 
-export default function CreateSafetyCode({ navigation }) {
+export default function ConfirmSafetyCode({ navigation }) {
     //stores value typed in verification
     const [code, setCode] = useState('');
     const ref = useBlurOnFulfill({ value: code, cellCount: CELL_COUNT });
@@ -42,7 +43,7 @@ export default function CreateSafetyCode({ navigation }) {
                 {/* Verification Title */}
                 <View>
                     <Text style={GlobalOnboardingStyles.titleText}>
-                        Create a Safety Code
+                        Confirm Safety Code
                     </Text>
                 </View>
 
@@ -52,6 +53,7 @@ export default function CreateSafetyCode({ navigation }) {
                         Your safety code is a 4-digit pin used{'\n'}to verify that you are safe.
                     </Text>
                 </View>
+
             </View>
 
             {/* Verification boxes made through library: react-native-confirmation-code-field */}
@@ -70,9 +72,12 @@ export default function CreateSafetyCode({ navigation }) {
 
             {/* Buttons */}
             <View style={CreateSafetyCodeStyles.buttonsView}>
-                <ContinueButton route={"ConfirmSafetyCode"} navigation={navigation} />
+                
+                <BackButton navigation={navigation} />
+                <ContinueButton navigation={navigation} route={"CalendarIntegration"} />
+                
             </View>
-            
+
         </Layout>
     )
 }

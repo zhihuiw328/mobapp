@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { CommonActions } from '@react-navigation/native';
 
 import Styles from './Styles';
 
@@ -18,6 +19,16 @@ const ContinueButton = ({ navigation, route, email }) => {
         }
 
         navigation.navigate(route);
+        if (route === "Main") {
+            navigation.dispatch(
+                CommonActions.reset({
+                index: 0,
+                routes: [
+                    { name: 'Main' },
+                ],
+                })
+            );
+        }
     };
 
     

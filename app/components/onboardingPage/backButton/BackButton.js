@@ -3,19 +3,10 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 import Styles from './Styles';
 
-const BackButton = ({ navigation, route }) => {
+const BackButton = ({ navigation }) => {
     
     const nav = () => {
-        
-        if (route === 'Verification') {
-            // TODO: check if email exist in database
-
-
-            // TODO: if email exists in databse, send the email to server
-            
-        }
-
-        navigation.navigate(route);
+        navigation.goBack();
     };
 
     

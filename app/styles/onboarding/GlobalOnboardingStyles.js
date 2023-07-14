@@ -22,10 +22,20 @@ const GlobalOnboardingStyles = StyleSheet.create({
         color: "#fff",
         fontSize: 40,
     },
+    subtitleText: {
+        fontFamily: "Outfit-SemiBold",
+        color: "#fff",
+        fontSize: 18,
+    },
     descriptionText: {
         fontFamily: "Outfit-Regular",
         color: "#fff",
         fontSize: 18,
+    },
+    buttonsView: { 
+        marginTop: 30, 
+        flexDirection: "row", 
+        columnGap: 20, 
     },
     
 });
