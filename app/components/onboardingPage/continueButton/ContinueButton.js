@@ -4,17 +4,25 @@ import { CommonActions } from '@react-navigation/native';
 
 import Styles from './Styles';
 
-const ContinueButton = ({ navigation, route, email }) => {
+const ContinueButton = ({ navigation, route, callback, data }) => {
     
     const nav = () => {
         
-        if (route === 'Verification') {
+        if (route === "Verification") {
             // TODO: check if email exist in database
+            callback().then(loginToken => {
+                // TODO: if email exists in databse, send the email to server
+                if (loginToken) {
+                    navigation.navigate(route);    
+                } else {
+                    // email not exist, pop email not exist message
+                }
+            });         
+            return;
+        }
 
-
-            // TODO: if email exists in databse, send the email to server
-            
-            navigation.navigate(route, {serverCode: '123456'});
+        if (route === "ConfirmSafetyCode") {
+            navigation.navigate(route, {safetyCode: data});
             return;
         }
 

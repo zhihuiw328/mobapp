@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { useContext, createRef, useEffect } from 'react';
+import { NavigationContainer, CommonActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -9,6 +9,7 @@ import OnboardingStack from './OnboardingStack';
 import HomeStack from './HomeStack';
 import SafetyTimerStack from './SafetyTimerStack';
 import SettingStack from './SettingStack';
+import { AuthProvider, AuthContext } from '../components/auth/AuthProvider';
 
 const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -41,16 +42,46 @@ function MainTabScreen() {
     )
 }
 
+const navigationRef = createRef();
+
 export default function Drawer() {
+
+    const { isLoggedIn } = useContext(AuthContext);
+
+    function navigate(name, params) {
+        navigationRef.current?.navigate(name, params);
+        navigationRef.current?.dispatch(
+            CommonActions.reset({
+                index: 0,
+                routes: [
+                    { name: name },
+                ],
+            })
+        );    
+    }
+
+    useEffect(() => {
+        if (!isLoggedIn) {
+            navigate("Auth");
+        } 
+    }, [isLoggedIn]);
+
+
     return (
-        <NavigationContainer>
-            <AuthStack.Navigator
-                presentation="card"
-                screenOptions={{ headerShown: false }}
-            >
-                <AuthStack.Screen name="Auth" component={OnboardingStack} />
-                <AuthStack.Screen name="Main" component={MainTabScreen}  />
-            </AuthStack.Navigator>
-        </NavigationContainer>
+        <AuthProvider>
+            <NavigationContainer ref={navigationRef}>
+                <AuthStack.Navigator
+                    presentation="card"
+                    screenOptions={{ headerShown: false }}
+                >   
+                    
+                    <AuthStack.Screen name="Main" component={MainTabScreen} />
+                    <AuthStack.Screen name="Auth" component={OnboardingStack} />
+                    
+                    {/* <AuthStack.Screen name="Auth" component={OnboardingStack} />
+                    <AuthStack.Screen name="Main" component={MainTabScreen}  /> */}
+                </AuthStack.Navigator>
+            </NavigationContainer>
+        </AuthProvider>
     )
-}
+};

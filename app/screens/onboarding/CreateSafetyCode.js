@@ -70,7 +70,7 @@ export default function CreateSafetyCode({ navigation }) {
 
             {/* Buttons */}
             <View style={CreateSafetyCodeStyles.buttonsView}>
-                <ContinueButton route={"ConfirmSafetyCode"} navigation={navigation} />
+                <ContinueButton route={"ConfirmSafetyCode"} navigation={navigation} data={code}/>
             </View>
             
         </Layout>

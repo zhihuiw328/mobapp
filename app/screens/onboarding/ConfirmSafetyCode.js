@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell, } from 'react-native-confirmation-code-field';
-
+import { getToken, saveToken } from '../../utils/Token';
+import axios from 'axios';
 
 import Layout from '../../components/onboardingPage/layout/Layout';
 import BackButton from '../../components/onboardingPage/backButton/BackButton';
@@ -11,7 +12,7 @@ import GlobalOnboardingStyles from '../../styles/onboarding/GlobalOnboardingStyl
 
 const CELL_COUNT = 4;
 
-export default function ConfirmSafetyCode({ navigation }) {
+export default function ConfirmSafetyCode({ route, navigation }) {
     //stores value typed in verification
     const [code, setCode] = useState('');
     const ref = useBlurOnFulfill({ value: code, cellCount: CELL_COUNT });
@@ -30,6 +31,33 @@ export default function ConfirmSafetyCode({ navigation }) {
             </View>
           );
     };
+
+    const { safetyCode } = route.params;
+
+    const confirmCode = async () => {
+
+        if (code.length === CELL_COUNT && code === safetyCode ) {
+            // store code to db
+            try {
+                const token = await getToken("userToken");
+                const config = {
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                };
+                await axios.put('http://localhost:3000/api/SafetyCode', {safetyCode: code}, config);
+            } catch(e) {
+                console.log("store safetyCode failed");
+            }
+
+        } else {
+            // TODO: codes are different, try again
+        }
+    };
+
+    useEffect(() => {
+        confirmCode();
+    }, [code]);
 
     return (
         <Layout>
